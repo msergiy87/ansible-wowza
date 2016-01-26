@@ -1,12 +1,25 @@
 ---
+- name: update_upgrade
+  apt: update_cache=yes upgrade=yes state=latest
+
+- name: Install java7 
+  apt: pkg=openjdk-7-jdk state=present update_cache=true
+
 - name: Get Wowza
-  get_url: url=http://www.wowza.com/downloads/WowzaStreamingEngine-4-1-2/{{ wowza_version }} dest=/home/vagrant/{{ wowza_version }} mode=0755
+  get_url: url=https://www.wowza.com/downloads/WowzaStreamingEngine-4-3-0/{{ wowza_version }} dest=/root/{{ wowza_version }} mode=0755
+
+# install expect (not expect-dev with dependencies)
 - name: install expect
   apt: name={{ item }} update_cache=yes
   with_items: the_expectables
+
 - name: push expect templates
-  template: src=script.exp.j2 dest=/home/vagrant/script.exp mode=0755
+  template: src=script.exp.j2 dest=/root/script.exp mode=0755
+
 - name: Run expect script, which runs Wowza installer
   args:
     creates: /usr/local/WowzaStreamingEngine/conf/Server.license
-  shell: ./script.exp
+  shell: /root/script.exp
+
+- service: name=WowzaStreamingEngine state=restarted
+- service: name=WowzaStreamingEngineManager state=restarted
