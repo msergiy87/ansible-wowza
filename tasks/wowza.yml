@@ -6,7 +6,7 @@
   apt: pkg=openjdk-7-jdk state=present update_cache=true
 
 - name: Get Wowza
-  get_url: url=https://www.wowza.com/downloads/WowzaStreamingEngine-4-3-0/{{ wowza_version }} dest=/root/{{ wowza_version }} mode=0755
+  get_url: url=http://www.wowza.com/downloads/WowzaStreamingEngine-4-3-0/{{ wowza_version }} dest=/root/{{ wowza_version }} mode=0755
 
 # install expect (not expect-dev with dependencies)
 - name: install expect
@@ -23,3 +23,6 @@
 
 - service: name=WowzaStreamingEngine state=restarted
 - service: name=WowzaStreamingEngineManager state=restarted
+
+- file: path=/root/script.exp state=absent
+- file: path=/root/{{ wowza_version }} state=absent
