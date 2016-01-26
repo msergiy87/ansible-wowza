@@ -8,12 +8,12 @@
 - name: Get Wowza
   get_url: url=http://www.wowza.com/downloads/WowzaStreamingEngine-4-3-0/{{ wowza_version }} dest=/root/{{ wowza_version }} mode=0755
 
-# install expect (not expect-dev with dependencies)
-- name: install expect
+# Install expect (not expect-dev with dependencies)
+- name: Install expect
   apt: name={{ item }} update_cache=yes
   with_items: the_expectables
 
-- name: push expect templates
+- name: Push expect templates
   template: src=script.exp.j2 dest=/root/script.exp mode=0755
 
 - name: Run expect script, which runs Wowza installer
@@ -21,8 +21,14 @@
     creates: /usr/local/WowzaStreamingEngine/conf/Server.license
   shell: /root/script.exp
 
-- service: name=WowzaStreamingEngine state=restarted
-- service: name=WowzaStreamingEngineManager state=restarted
+- name: Restart WowzaStreamingEngine
+  service: name=WowzaStreamingEngine state=restarted
 
-- file: path=/root/script.exp state=absent
-- file: path=/root/{{ wowza_version }} state=absent
+- name: Restart WowzaStreamingEngineManager
+  service: name=WowzaStreamingEngineManager state=restarted
+
+- name: Chmod /root/script.exp
+  file: path=/root/script.exp mode=0400
+
+- name: Chmod /root/{{ wowza_version }}
+  file: path=/root/{{ wowza_version }} mode=0400
