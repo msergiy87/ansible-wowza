@@ -6,7 +6,13 @@
   apt: pkg=openjdk-7-jdk state=present update_cache=true
 
 - name: Get Wowza
-  get_url: url=http://www.wowza.com/downloads/WowzaStreamingEngine-4-3-0/{{ wowza_version }} dest=/root/{{ wowza_version }} mode=0755
+  get_url:
+    url: http://ispc-test.kpi.ua/my/{{ wowza_version }} dest=/root/{{ wowza_version }}
+#    url: http://www.wowza.com/downloads/WowzaStreamingEngine-4-3-0/{{ wowza_version }}
+    dest: /root/{{ wowza_version }}
+    owner: root
+    group: root
+    mode: 0755
 
 # Install expect (not expect-dev with dependencies)
 - name: Install expect
@@ -14,7 +20,12 @@
   with_items: the_expectables
 
 - name: Push expect templates
-  template: src=script.exp.j2 dest=/root/script.exp mode=0755
+  template:
+    src: script.exp.j2
+    dest: /root/script.exp
+    owner: root
+    group: root
+    mode: 0755
 
 - name: Run expect script, which runs Wowza installer
   args:
@@ -28,7 +39,15 @@
   service: name=WowzaStreamingEngineManager state=restarted
 
 - name: Chmod /root/script.exp
-  file: path=/root/script.exp mode=0400
+  file:
+    path: /root/script.exp
+    owner: root
+    group: root
+    mode: 0400
 
 - name: Chmod /root/{{ wowza_version }}
-  file: path=/root/{{ wowza_version }} mode=0400
+  file:
+    path: /root/{{ wowza_version }}
+    owner: root
+    group: root
+    mode: 0400
