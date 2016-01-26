@@ -7,8 +7,7 @@
 
 - name: Get Wowza
   get_url:
-    url: http://ispc-test.kpi.ua/my/{{ wowza_version }} dest=/root/{{ wowza_version }}
-#    url: http://www.wowza.com/downloads/WowzaStreamingEngine-4-3-0/{{ wowza_version }}
+    url: http://www.wowza.com/downloads/WowzaStreamingEngine-4-3-0/{{ wowza_version }}
     dest: /root/{{ wowza_version }}
     owner: root
     group: root
