@@ -1,4 +1,10 @@
 # ansible-wowza
+
+Wowza 4.3.0
+```
+ansible-playbook -i hosts web.yml
+```
+
 ## Wowza role for Ansible
 This role automates the installation of the Wowza Media Server, including their installer, which contains a very
 long EULA, and 5 interactive prompts.
