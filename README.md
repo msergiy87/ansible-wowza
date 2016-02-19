@@ -4,6 +4,17 @@ Wowza 4.3.0
 ```
 ansible-playbook -i hosts web.yml
 ```
+web.yml
+```
+---
+- hosts: all
+  user: root
+
+  roles:
+    - simplycycling.wowza
+  tasks:
+    - debug: msg={{ansible_default_ipv4}}
+```
 
 ## Wowza role for Ansible
 This role automates the installation of the Wowza Media Server, including their installer, which contains a very
