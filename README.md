@@ -26,7 +26,7 @@ long EULA, and 5 interactive prompts.
 - Wowza binary - the Wowza binary (4.3.0) is now wgetted as part of this role. 
 
 # Distros tested
-Currently, this is only tested on Ubuntu 14.04, but as time allows, I'll be testing it on other distros/versions.
+Currently, this is only tested on Ubuntu 14.04. It should theoretically work on older versions of Ubuntu or Debian based systems.
 
 ## Wait a minute, what the hell is Wowza?
 From the Wowza site:
