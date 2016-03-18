@@ -1,20 +1,6 @@
 # ansible-wowza
 
 Wowza 4.3.0
-```
-ansible-playbook -i hosts web.yml
-```
-web.yml
-```
----
-- hosts: all
-  user: root
-
-  roles:
-    - simplycycling.wowza
-  tasks:
-    - debug: msg={{ansible_default_ipv4}}
-```
 
 ## Wowza role for Ansible
 This role automates the installation of the Wowza Media Server, including their installer, which contains a very
@@ -48,3 +34,19 @@ Wowza needs several user actions on the interactive prompt portion of the instal
 Fill these values in, in vars/main.yml. I've already taken the liberty of answering "yes" for the acceptance of terms,
 and whether or not you want Wowza to start at boot, but you can easily change that, should you feel the need. Those 
 values can be edited in the template/script.exp.j2 file.
+
+web.yml
+```
+---
+- hosts: all
+  user: root
+
+  roles:
+    - simplycycling.wowza
+  tasks:
+    - debug: msg={{ansible_default_ipv4}}
+```
+
+```
+ansible-playbook -i hosts web.yml
+```
