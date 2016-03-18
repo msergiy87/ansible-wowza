@@ -1,8 +1,6 @@
 # ansible-wowza
 
-Wowza 4.3.0
-
-## Wowza role for Ansible
+## Ansible role for Wowza 4.3.0
 This role automates the installation of the Wowza Media Server, including their installer, which contains a very
 long EULA, and 5 interactive prompts.
 
