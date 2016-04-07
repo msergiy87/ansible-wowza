@@ -7,8 +7,8 @@
 
 - name: Get Wowza
   get_url:
-    url: http://www.wowza.com/downloads/WowzaStreamingEngine-4-3-0/{{ wowza_version }}
-    dest: /root/{{ wowza_version }}
+    url: http://www.wowza.com/downloads/{{ wowza_path }}/{{ wowza_file }}
+    dest: /root/{{ wowza_file }}
     owner: root
     group: root
     mode: 0755
@@ -44,9 +44,9 @@
     group: root
     mode: 0400
 
-- name: Chmod /root/{{ wowza_version }}
+- name: Chmod /root/{{ wowza_file }}
   file:
-    path: /root/{{ wowza_version }}
+    path: /root/{{ wowza_file }}
     owner: root
     group: root
     mode: 0400
