@@ -7,7 +7,7 @@
 
 - name: Get Wowza
   get_url:
-    url: http://www.wowza.com/downloads/{{ wowza_path }}/{{ wowza_file }}
+    url: http://www.wowza.com/downloads/{{ wowza_download_path }}/{{ wowza_file }}
     dest: /root/{{ wowza_file }}
     owner: root
     group: root
