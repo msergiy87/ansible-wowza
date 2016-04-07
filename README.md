@@ -1,13 +1,13 @@
 # ansible-wowza
 
-## Ansible role for Wowza 4.3.0
+## Ansible role for Wowza 4.4.1
 This role automates the installation of the Wowza Media Server, including their installer, which contains a very
 long EULA, and 5 interactive prompts.
 
 # Requirements
-- Java jdk - I use Oracle Java 7, but openjdk will be just fine.
+- Java jdk - I use openjdk.
 - Wowza license - this you will get when you sign up for a free trial, or you can request a developer license.
-- Wowza binary - the Wowza binary (4.3.0) is now wgetted as part of this role. 
+- Wowza binary - the Wowza binary (4.4.1) is now wgetted as part of this role. 
 
 # Distros tested
 Currently, this is only tested on Ubuntu 14.04. It should theoretically work on older versions of Ubuntu or Debian based systems.
@@ -40,7 +40,7 @@ web.yml
   user: root
 
   roles:
-    - simplycycling.wowza
+    - ansible-wowza
   tasks:
     - debug: msg={{ansible_default_ipv4}}
 ```
