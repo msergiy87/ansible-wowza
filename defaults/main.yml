@@ -1,5 +1,5 @@
 wowza_file: "WowzaStreamingEngine-4.4.1-linux-x64-installer.run"
-wowza_path: "WowzaStreamingEngine-4-4-1"
+wowza_download_path: "WowzaStreamingEngine-4-4-1"
 user_name: "username"
 password: "password"
 license_key: "insert key between quotations"
