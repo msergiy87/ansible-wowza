@@ -3,7 +3,7 @@
 # Thanks to Glenn Jackman on stack overflow for helping me with this script
 
 set timeout -1
-spawn sudo /root/{{ wowza_version }}
+spawn sudo /root/{{ wowza_file }}
 
 expect {
     -gl "*Press * to continue:*" { send -- "\r"; exp_continue }
