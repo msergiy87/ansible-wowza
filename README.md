@@ -21,6 +21,57 @@ _Wowza software is platform-agnostic, multi-format, and multi-screen. It takes i
 
 ## Usage
 
+##### 1) Install Ansible
+
+```shell
+apt-get update
+apt-get install software-properties-common
+
+apt-add-repository ppa:ansible/ansible
+
+apt-get update
+apt-get install ansible
+```
+
+##### 2) Prepare host. Copy id_rsa.pub key from desktop to server /root/.ssh/authorized_keys
+```shell
+cat /root/.ssh/id_rsa.pub
+
+mkdir /root/.ssh
+vim  /root/.ssh/authorized_keys
+```
+
+##### 3) Clone repository
+
+```shell
+mkdir ~/my_deploy_code
+cd ~/my_deploy_code
+git clone https://github.com/msergiy87/ansible-wowza.git
+```
+
+##### 5) Create web.yml file
+
+
+##### 6) Create hosts file
+
+
+##### 7) Add license key and change username and password
+```shell
+vim ansible-wowza/defaults/main.yml
+
+user_name: "admin"
+password: "admin"
+license_key: "insert key between quotations"
+```
+
+##### 7) 
+ansible-playbook -i hosts web.yml
+
+##### 8) Run web interface
+```
+http://192.168.0.103/enginemanager
+```
+
 Wowza needs several user actions on the interactive prompt portion of the installer:
 - an acknowledgement of acceptance of their terms
 - an administrative user added for using the Wowza console
