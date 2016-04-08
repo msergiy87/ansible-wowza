@@ -21,7 +21,7 @@ _Wowza software is platform-agnostic, multi-format, and multi-screen. It takes i
 
 ## Usage
 
-##### 1) Install Ansible
+##### 1) Install Ansible.
 
 ```shell
 apt-get update
@@ -33,7 +33,7 @@ apt-get update
 apt-get install ansible
 ```
 
-##### 2) Prepare host. Copy id_rsa.pub key from desktop to server /root/.ssh/authorized_keys
+##### 2) Prepare host. Copy `id_rsa.pub` key from desktop to server `/root/.ssh/authorized_keys`.
 ```shell
 cat /root/.ssh/id_rsa.pub
 
@@ -41,7 +41,7 @@ mkdir /root/.ssh
 vim  /root/.ssh/authorized_keys
 ```
 
-##### 3) Clone repository
+##### 3) Clone repository.
 
 ```shell
 mkdir ~/my_deploy_code
@@ -49,13 +49,30 @@ cd ~/my_deploy_code
 git clone https://github.com/msergiy87/ansible-wowza.git
 ```
 
-##### 5) Create web.yml file
+##### 5) Create `web.yml` file with content.
 
+```
+vim web.yml
 
-##### 6) Create hosts file
+---
+- hosts: all
+  user: root
 
+  roles:
+    - ansible-wowza
+  tasks:
+    - debug: msg={{ansible_default_ipv4}}
+```
 
-##### 7) Add license key and change username and password
+##### 6) Create `hosts` file.
+
+```shell
+vim hosts
+192.168.0.103
+```
+
+##### 7) Add license key and change username and password.
+
 ```shell
 vim ansible-wowza/defaults/main.yml
 
@@ -64,10 +81,13 @@ password: "admin"
 license_key: "insert key between quotations"
 ```
 
-##### 7) 
-ansible-playbook -i hosts web.yml
+##### 7) Run install process.
 
-##### 8) Run web interface
+```shell
+ansible-playbook -i hosts web.yml
+```
+
+##### 8) Run web interface.
 ```
 http://192.168.0.103/enginemanager
 ```
@@ -83,19 +103,3 @@ Wowza needs several user actions on the interactive prompt portion of the instal
 Fill these values in, in vars/main.yml. I've already taken the liberty of answering "yes" for the acceptance of terms,
 and whether or not you want Wowza to start at boot, but you can easily change that, should you feel the need. Those 
 values can be edited in the template/script.exp.j2 file.
-
-web.yml
-```
----
-- hosts: all
-  user: root
-
-  roles:
-    - ansible-wowza
-  tasks:
-    - debug: msg={{ansible_default_ipv4}}
-```
-
-```
-ansible-playbook -i hosts web.yml
-```
