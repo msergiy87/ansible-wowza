@@ -59,7 +59,7 @@ cd ~/my_deploy_code
 git clone https://github.com/msergiy87/ansible-wowza.git
 ```
 
-##### 5) Create `web.yml` file with content.
+##### 4) Create `web.yml` file with content.
 
 ```
 vim web.yml
@@ -74,14 +74,14 @@ vim web.yml
     - debug: msg={{ansible_default_ipv4}}
 ```
 
-##### 6) Create `hosts` file.
+##### 5) Create `hosts` file.
 
 ```shell
 vim hosts
 192.168.0.103
 ```
 
-##### 7) Add license key and change username and password.
+##### 6) Add license key and change username and password.
 
 ```shell
 vim ansible-wowza/defaults/main.yml
