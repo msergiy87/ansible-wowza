@@ -1,7 +1,7 @@
 wowza_file: "WowzaStreamingEngine-4.4.1-linux-x64-installer.run"
 wowza_download_path: "http://www.wowza.com/downloads/WowzaStreamingEngine-4-4-1"
-user_name: "username"
-password: "password"
+user_name: "admin"
+password: "admin"
 license_key: "insert key between quotations"
 
 the_expectables:
