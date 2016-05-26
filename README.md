@@ -2,7 +2,7 @@
 
 ## Ansible role for Wowza 4.4.1
 This role automates the installation of the Wowza Media Server, including their installer, which contains a very
-long EULA, and 5 interactive prompts.
+long EULA, and 7 interactive prompts.
 
 # Requirements
 - Java jdk - I use openjdk.
@@ -20,7 +20,7 @@ license_key: "insert key between quotations"
 ```
 
 # Distros tested
-Currently, this is only tested on Ubuntu 14.04. It should theoretically work on older versions of Ubuntu or Debian based systems.
+Currently, this is only tested on Ubuntu 14.04 as a client aand server machine. It should theoretically work on older versions of Ubuntu or Debian based systems.
 
 ## Wait a minute, what the hell is Wowza?
 From the Wowza site:
@@ -35,6 +35,7 @@ _Wowza software is platform-agnostic, multi-format, and multi-screen. It takes i
 
 ```shell
 apt-get update
+apt-get install git -y
 apt-get install software-properties-common
 
 apt-add-repository ppa:ansible/ansible
