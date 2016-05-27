@@ -20,7 +20,7 @@ license_key: "insert key between quotations"
 ```
 
 # Distros tested
-Currently, this is only tested on Ubuntu 14.04 as a client aand server machine. It should theoretically work on older versions of Ubuntu or Debian based systems.
+Currently, this is only tested on Ubuntu 14.04 as a client and server machine. It should theoretically work on older versions of Ubuntu or Debian based systems.
 
 ## Wait a minute, what the hell is Wowza?
 From the Wowza site:
